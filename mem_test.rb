@@ -38,10 +38,10 @@ end
 
 
 
-def call_memcache(iterations, query_pattern)
+def call_memcache(iterations, query)
   @start_time = Time.now
   # run the query pattern
-  query_pattern.call(iterations)
+  query.call(iterations)
   @end_time = Time.now
   @elapsed = @end_time - @start_time
   erb :index # render views/index.erb
