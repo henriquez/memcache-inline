@@ -6,5 +6,19 @@
   <%= @elapsed %> seconds or <%= @elapsed*1000000 %> microseconds
 </body>
 
+<script>
 
+var t = new Date().getSeconds();
+console.log("time is " + t);
+
+sleep_for = 60 - t
+console.log("sleep_for=" + sleep_for)
+hd = setTimeout(function() {
+  location.reload();
+  clearTimeout(hd);
+  }, 
+  sleep_for*1000);
+
+
+</script>
 </html>
