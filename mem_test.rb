@@ -9,8 +9,8 @@ get '/a/:requests' do
   @start_time = Time.now
   @queries = params[:requests].to_i / 2 # get and set operation per iteration
   @queries.to_i.times do |key|
-    dc.set('foo', 'bar')
-    @out = dc.get('foo')
+    dc.set(key, 'bar')
+    @out = dc.get(key)
   end
   @end_time = Time.now
   @elapsed = @end_time - @start_time
