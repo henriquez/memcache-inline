@@ -2,8 +2,8 @@
 <head>
 </head>
 
-<body>Ran against memcached
-
+<body>Performed <%= @queries %> queries. Started at <%= @start_time.strftime("%H:%M:%S,%L") %> and finished at <%= @end_time.strftime("%H:%M:%S,%L") %>.  got key <%= @out %> with elapsed time of
+  <%= @elapsed %> seconds or <%= @elapsed*1000000 %> microseconds
 </body>
 
 
