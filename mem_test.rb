@@ -5,7 +5,7 @@ require 'dalli'
 
 # Do equal number of sets and gets with small values
 get '/a/:requests' do
-  dc = Dalli::Client.new('localhost:11211')
+  dc = Dalli::Client.new
   @start_time = Time.now
   @queries = params[:requests].to_i / 2 # get and set operation per iteration
   @queries.to_i.times do |key|
