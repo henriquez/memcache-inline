@@ -39,6 +39,16 @@ end
 
 
 def call_memcache(iterations, query)
+  # wait until current Time least signifcant digit is either 
+  # 5 or 0 sec so that multiple workers all start at the same time
+  t = Time.now.sec
+  @sleep_for = false
+  if (t % 5 == 0) 
+    @sleep_for = false
+  else 
+    @sleep_for = 5 - (t % 5)
+  end
+  sleep(@sleep_for) unless @sleep_for == false
   @start_time = Time.now
   # run the query pattern
   query.call(iterations)
